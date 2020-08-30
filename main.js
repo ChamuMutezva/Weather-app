@@ -1,7 +1,9 @@
-async function getWeather() {
+const form = document.querySelector("form")
+let cityData = "Bulawayo"
+async function getWeather(cityInfo) {
     let lat
     let lon
-    const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=harare&units=metric&include=daily,hourly&APPID=fe6ae1105f55c208a0b19ec80c0a7544`);
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityInfo}&units=metric&include=daily,hourly&APPID=fe6ae1105f55c208a0b19ec80c0a7544`);
     const weatherData = await res.json();
     console.log(weatherData)
     const city = document.querySelector("h2")
@@ -10,14 +12,14 @@ async function getWeather() {
     const img = document.querySelector("img")
     city.innerHTML = weatherData.name
     weatherDesc.innerHTML = weatherData.weather[0].description
-    img.src = `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`
+    img.src = `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`
     currentTemp.innerHTML = `Current temperature ${weatherData.main.temp}`
     lat = weatherData.coord.lat
     lon = weatherData.coord.lon
     console.log(lat, lon)
     getWeekly(lat, lon)
 }
-getWeather()
+getWeather(cityData)
 
 async function getWeekly(latitude, longitude) {
     const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&exclude=minutely,hourly&appid=fe6ae1105f55c208a0b19ec80c0a7544`)
@@ -71,5 +73,14 @@ const unixConverter = unixstamp => {
        // console.log(date)
         
 }
+
+form.addEventListener("submit", (event) => {
+    const cityValue = document.getElementById("searchCity");
+    event.preventDefault()
+    console.log(event)
+    console.log(cityValue.value)
+    getWeather(cityValue.value)
+
+})
 
 

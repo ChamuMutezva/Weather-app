@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+   /* background-image: url("./images/weather2.jpg"); */   
+   background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%) ,
+                linear-gradient(127deg, rgba(68, 206, 224, 0.8), rgba(0,255,0,0) 70.71%) ,
+                linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%) ;
+}
+
+header {
+    padding-top: 40px;
+}
+h1 {
+    padding: 10px;
+    font-weight: 900;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    row-gap: 10px;
+}
+input#searchCity, input[type="submit"] {
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 600;
+    border: none;
+}
+input[type="submit"] {
+   
+   
+}
+
+input[type="submit"]:hover {
+   background-color: black;
+   color: white;
+   
+}
