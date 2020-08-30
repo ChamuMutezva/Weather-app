@@ -1,19 +1,25 @@
 const form = document.querySelector("form")
 let cityData = "Bulawayo"
 async function getWeather(cityInfo) {
+    const futureDate = new Date();
+    console.log(futureDate.toDateString())    
     let lat
     let lon
     const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityInfo}&units=metric&include=daily,hourly&APPID=fe6ae1105f55c208a0b19ec80c0a7544`);
     const weatherData = await res.json();
     console.log(weatherData)
-    const city = document.querySelector("h2")
-    const weatherDesc = document.querySelector("h3")
-    const currentTemp = document.querySelector(".current");
-    const img = document.querySelector("img")
+    const city = document.querySelector(".currentData h2")
+    const weatherDesc = document.querySelector(".currentData h3")
+    const currentTemp = document.querySelector(".current")
+    const img = document.querySelector(".currentData img")
+    const dateTaken = document.querySelector(".currentData h5")
+
+    dateTaken.innerHTML = futureDate.toDateString();
     city.innerHTML = weatherData.name
+    currentTemp.innerHTML = `${weatherData.main.temp}&deg C`
     weatherDesc.innerHTML = weatherData.weather[0].description
     img.src = `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`
-    currentTemp.innerHTML = `Current temperature ${weatherData.main.temp}`
+   
     lat = weatherData.coord.lat
     lon = weatherData.coord.lon
     console.log(lat, lon)
@@ -29,25 +35,34 @@ async function getWeekly(latitude, longitude) {
 
 const displayData = (weekForecast) => {
     const weekDiv = document.querySelector(".weeklyData")
-    const futureDate = new Date();
-    console.log(futureDate.toDateString())    
+    
    
     //console.log(weekForecast)
     weekForecast.daily.map(periodTime => {
-
-        unixConverter(periodTime)
+        console.log(unixConverter(periodTime))
+       // unixConverter(periodTime)
+        const nextDate = unixConverter(periodTime)
+       
        
         const  imgSrc = `http://openweathermap.org/img/wn/${periodTime.weather[0].icon}@2x.png`
         console.log(periodTime)
         let template = `
-        <div>
-         <h3>${periodTime.weather[0].description}</h3>
-         <h3>${periodTime.temp.day}</h3>
-         <img src=${imgSrc} />
+        <div class="forecast">                         
+                <h3>${nextDate}</h3
+                <h3>${periodTime.temp.day}&deg C</h3>                
+                <div class="rainCondition">
+                    <img src=${imgSrc} />
+                    <h3>${periodTime.weather[0].description}</h3>
+                </div>
+                
+                
+                
+            
          </div
          `
         // console.log(dayDated)
         console.log(periodTime)
+       
         weekDiv.innerHTML += template
     })
 }
@@ -66,8 +81,8 @@ const unixConverter = unixstamp => {
         const dayNum = dateArr[2]
         const year = dateArr[3]
 
-        console.log(day, month, dayNum, year)
-        return day, month, dayNum, year
+       // console.log(day, month, dayNum, year)
+        return `${day} ${month} ${dayNum} ${year}`
        // console.log(unix_timestamp);
        // console.log(day, year)
        // console.log(date)
