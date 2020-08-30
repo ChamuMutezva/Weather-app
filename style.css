@@ -72,11 +72,11 @@ h4.current {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 3px solid darkblue;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 20px;
+    border-bottom: 3px solid darkblue;
 }
 .forecast h3 {
     font-size: .5rem;
+}
+.rainCondition img {
+    transform: scale(0.5);
 }

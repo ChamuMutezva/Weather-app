@@ -5,9 +5,22 @@ async function getWeather(cityInfo) {
     console.log(futureDate.toDateString())    
     let lat
     let lon
+
     const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityInfo}&units=metric&include=daily,hourly&APPID=fe6ae1105f55c208a0b19ec80c0a7544`);
     const weatherData = await res.json();
     console.log(weatherData)
+
+    //get all countries - to use with the above data 
+    //which only contains the country code
+    // combine with code below to get the full country
+    const countryList = await fetch(`https://restcountries.eu/rest/v2/all`);
+    const countries = await countryList.json();
+   // console.log(countries);
+    const selectCountry = countries.find(cty => cty.alpha2Code == weatherData.sys.country)
+       
+    
+    console.log(selectCountry.name)
+
     const city = document.querySelector(".currentData h2")
     const weatherDesc = document.querySelector(".currentData h3")
     const currentTemp = document.querySelector(".current")
@@ -15,7 +28,7 @@ async function getWeather(cityInfo) {
     const dateTaken = document.querySelector(".currentData h5")
 
     dateTaken.innerHTML = futureDate.toDateString();
-    city.innerHTML = weatherData.name
+    city.innerHTML = weatherData.name + ", " + selectCountry.name
     currentTemp.innerHTML = `${weatherData.main.temp}&deg C`
     weatherDesc.innerHTML = weatherData.weather[0].description
     img.src = `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`
@@ -51,8 +64,7 @@ const displayData = (weekForecast) => {
                 <h3>${nextDate}</h3
                 <h3>${periodTime.temp.day}&deg C</h3>                
                 <div class="rainCondition">
-                    <img src=${imgSrc} />
-                    <h3>${periodTime.weather[0].description}</h3>
+                    <img src=${imgSrc} />                   
                 </div>
                 
                 
