@@ -6,6 +6,7 @@
 body {
     font-family: 'Lato', sans-serif;
     text-align: center;
+    color: white;
    /* background-image: url("./images/weather2.jpg"); */   
    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%) ,
                 linear-gradient(127deg, rgba(68, 206, 224, 0.8), rgba(0,255,0,0) 70.71%) ,
