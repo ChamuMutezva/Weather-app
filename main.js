@@ -48,7 +48,7 @@ async function getWeekly(latitude, longitude) {
 
 const displayData = (weekForecast) => {
     const weekDiv = document.querySelector(".weeklyData")
-    
+    weekDiv.innerHTML = "";
    
     //console.log(weekForecast)
     weekForecast.daily.map(periodTime => {
