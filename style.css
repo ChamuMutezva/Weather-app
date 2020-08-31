@@ -63,13 +63,18 @@ h4.current {
 }
 
 .weeklyData {
-    width: 350px;
+    width: 95%;
     margin: 10px auto;
-    border: 2px solid #90909d;
+  /*  border: 2px solid #90909d; */
     padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 .forecast {
+    margin: auto;
     display: flex;
+    width: min(350px, 50%);
     justify-content: space-between;
     align-items: center;
     border-bottom: 3px solid darkblue;
