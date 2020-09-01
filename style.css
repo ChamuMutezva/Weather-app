@@ -91,13 +91,14 @@ h4.current {
 .forecast {
     margin: auto;
     display: flex;
-    width: min(350px, 50%);
+    width: min(350px, 80%);
     justify-content: space-between;
     align-items: center;
     border-bottom: 3px solid darkblue;
 }
 .forecast h3 {
     font-size: .5rem;
+    overflow-wrap: break-word;
 }
 .rainCondition img {
     transform: scale(0.5);
