@@ -57,7 +57,7 @@ const displayData = (weekForecast) => {
         const nextDate = unixConverter(periodTime)
        
        
-        const  imgSrc = `http://openweathermap.org/img/wn/${periodTime.weather[0].icon}@2x.png`
+        const  imgSrc = `https://openweathermap.org/img/wn/${periodTime.weather[0].icon}@2x.png`
         console.log(periodTime)
         let template = `
         <div class="forecast">                         
