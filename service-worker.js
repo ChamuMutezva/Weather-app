@@ -1,11 +1,12 @@
 const filesToCache = [
     '/',
-    'styles.css',
+    'style.css',
     'index.html',      
     'main.js',
     'README.md',
     'images/weather2.jpg',
-    'images/weather1.jpg'
+    'images/weather1.jpg',
+    'manifest.json'
     
 
 ];

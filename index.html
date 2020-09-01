@@ -4,20 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="mask-icon" href="./images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,300;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,300;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <header>
+     <!---  <nav><ul>
+            <li>Today</li>
+            <li>Houry</li>
+            <li>8 days</li>
+        </ul></nav>
+    -->
         <h1>Weather Center</h1>
         <form>
             <label for="searchCity">City name </label>
             <input type="search" name="" id="searchCity" placeholder="Port Elizabeth" />
             <input type="submit" value="Search for a City" />
-        </form>   
-            
+        </form>
+
     </header>
     <main>
         <div class="container">
@@ -36,6 +50,9 @@
         </div>
     </main>
     <script src="main.js"></script>
+     <!--Website sharing 
+     <script src="./scripts/webShare.js"></script>
+     -->
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
