@@ -34,7 +34,7 @@ async function getWeather(cityInfo) {
         currentTemp.innerHTML = `${weatherData.main.temp}&deg C`
         weatherDesc.innerHTML = weatherData.weather[0].description
         img.src = `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`
-
+        img.setAttribute("alt", weatherData.weather[0].description)
         lat = weatherData.coord.lat
         lon = weatherData.coord.lon
         console.log(lat, lon)
@@ -69,7 +69,7 @@ const displayData = (weekForecast) => {
                 <h3>${nextDate}</h3
                 <h3>${periodTime.temp.day}&deg C</h3>                
                 <div class="rainCondition">
-                    <img src=${imgSrc} />                   
+                    <img src=${imgSrc} alt=${periodTime.weather[0].description} />                   
                 </div>
                 
                 

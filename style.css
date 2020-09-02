@@ -14,10 +14,9 @@ body {
 }
 
 header {
-    display: flex;
-    flex-direction: column-reverse;
- 
-    align-items: center; 
+   /* display: flex;
+    flex-direction: column-reverse; 
+    align-items: center; */
     padding-bottom: 30px;
     position: fixed;
     background: #0f1644;
@@ -32,18 +31,17 @@ h1 {
     width: 65%;
     padding: 10px;
     font-weight: 900;
-    font-size: 2rem;
+    font-size: 1.8rem;
     background: -webkit-linear-gradient(#efeef2, #080516);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-form {
-   
+form {   
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
-    row-gap: 10px;
+   /* row-gap: 10px; */
 }
 input#searchCity {
     width: 200px;
@@ -136,17 +134,41 @@ button {
     fill: red;
     transform: scale(0.9);
 }
-
+.shareApp {
+    width: 20px;
+    position: absolute;
+    top: 22px;
+    right: 23px;
+}
 @media screen and (min-width: 680px) {
+    form {
+        padding: 20px;      
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: baseline;
+        justify-content: space-around;
+        /* row-gap: 10px; */
+    }
  header {
-    flex-direction: row-reverse;
+     padding-bottom: 15px;
+   /* flex-direction: row-reverse;
     justify-content: space-between;
     align-items: baseline;
-    padding-top: 10px;
     padding-right: 70px;
-   padding-left: 20px;
+    padding-left: 20px;
+    padding-top: 10px;*/
+   
  }
  h1 {
+     width: 50%;
      text-align: left;
  }
+ .shareApp {
+     visibility: hidden;
+ }
+ svg.share-button {
+    padding: 5px;
+    background: #4e4e76;
+    border-radius: 50%;
+}
 }

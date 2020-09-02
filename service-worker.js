@@ -6,6 +6,7 @@ const filesToCache = [
     'README.md',
     'images/weather2.jpg',
     'images/weather1.jpg',
+    'images/share-solid.svg',
     'manifest.json'
     
 
