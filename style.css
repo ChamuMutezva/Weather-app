@@ -16,8 +16,8 @@ body {
 header {
     display: flex;
     flex-direction: column-reverse;
-  /*  justify-content: space-around;
-    align-items: baseline; */
+ 
+    align-items: center; 
     padding-bottom: 30px;
     position: fixed;
     background: #0f1644;
@@ -29,6 +29,7 @@ main {
     z-index: 1;
 }
 h1 {
+    width: 65%;
     padding: 10px;
     font-weight: 900;
     font-size: 2rem;
@@ -138,9 +139,14 @@ button {
 
 @media screen and (min-width: 680px) {
  header {
-     flex-direction: row-reverse;
-     justify-content: space-around;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     align-items: baseline;
     padding-top: 10px;
+    padding-right: 70px;
+   padding-left: 20px;
+ }
+ h1 {
+     text-align: left;
  }
 }
