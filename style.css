@@ -35,13 +35,15 @@ h1 {
     background: -webkit-linear-gradient(#efeef2, #080516);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-align: left;
+    padding-left: 20px;
 }
 form {   
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
-   /* row-gap: 10px; */
+    align-items: baseline;
 }
 input#searchCity {
     width: 200px;
@@ -107,6 +109,7 @@ h4.current {
 }
 .formContainer {
     position: relative;
+    padding-left: 20px;
 }
 label#customBtn {
     position: absolute;
@@ -139,6 +142,11 @@ button {
     position: absolute;
     top: 22px;
     right: 23px;
+}
+svg.share-button {
+    background: #53539d;
+    padding: 5px;
+    border-radius: 50%;
 }
 @media screen and (min-width: 680px) {
     form {
