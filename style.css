@@ -101,7 +101,7 @@ input#searchCity {
     border-bottom: 3px solid darkblue;
 }
 .forecast h3 {
-    font-size: .5rem;
+    font-size: 1rem;
     overflow-wrap: break-word;
 }
 .rainCondition img {
