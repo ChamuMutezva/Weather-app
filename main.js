@@ -11,11 +11,13 @@ const loadLocalData = ()  => {
         //does localStorage contain any items
         if (localStorage.length > 0) {
             let key = localStorage.key(localStorage.length - 1)            
-            let value = JSON.parse(localStorage.getItem(key))
+            
             if(new Date(parseInt(key)) == "Invalid Date") {
                 console.log(new Date(parseInt(key)));
                 return  getWeather(cityData)
             }
+
+            let value = JSON.parse(localStorage.getItem(key))
             
             console.log(key);
             console.log(value)
