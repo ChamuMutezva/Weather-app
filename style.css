@@ -60,10 +60,10 @@ input#searchCity {
     padding: 10px;
     border-radius: 10px;
 }
-h4.current {
+.current {
     padding: 15px;
     font-weight: 900;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .weeklyData {

@@ -29,6 +29,7 @@ if (window.localStorage) {
         getWeekly(lat, lon)
     } else {
         console.log("No items in localstorage")
+        getWeather(cityData)
     }
 
 }
@@ -41,7 +42,7 @@ async function getWeather(cityInfo) {
     let lon
 
     try {
-
+        console.log(cityInfo);
         const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityInfo}&units=metric&include=daily,hourly&APPID=fe6ae1105f55c208a0b19ec80c0a7544`);
         const weatherData = await res.json();
         console.log(weatherData)
@@ -51,7 +52,7 @@ async function getWeather(cityInfo) {
         // combine with code below to get the full country
         const countryList = await fetch(`https://restcountries.eu/rest/v2/all`);
         const countries = await countryList.json();
-        // console.log(countries);
+         console.log(countries);
         const selectCountry = countries.find(cty => cty.alpha2Code == weatherData.sys.country)
 
 
@@ -61,7 +62,7 @@ async function getWeather(cityInfo) {
         const weatherDesc = document.querySelector(".currentData h3")
         const currentTemp = document.querySelector(".current")
         const img = document.querySelector(".currentData img")
-        const dateTaken = document.querySelector(".currentData h5")
+        const dateTaken = document.querySelector(".currentDateTime")
 
         dateTaken.innerHTML = futureDate.toDateString();
         city.innerHTML = weatherData.name + ", " + selectCountry.name
