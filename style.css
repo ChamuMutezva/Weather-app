@@ -56,8 +56,7 @@ input#searchCity {
 .currentData {
     margin: 150px auto 20px;
     width: min(350px, 90%);
-    padding: 10px;
-    border: 4px solid #5d4e66;
+    padding: 10px;  
     box-shadow: 1px 1px 9px 10px white;
     border-radius: 20px;
 }
