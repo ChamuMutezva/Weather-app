@@ -10,8 +10,13 @@ const loadLocalData = ()  => {
         console.log("Local storage is supported")
         //does localStorage contain any items
         if (localStorage.length > 0) {
-            let key = localStorage.key(localStorage.length - 1)
+            let key = localStorage.key(localStorage.length - 1)            
             let value = JSON.parse(localStorage.getItem(key))
+            if(new Date(parseInt(key)) == "Invalid Date") {
+                console.log(new Date(parseInt(key)));
+                return  getWeather(cityData)
+            }
+            
             console.log(key);
             console.log(value)
             const city = document.querySelector(".currentData h2")
