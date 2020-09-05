@@ -57,9 +57,7 @@ async function getWeather(cityInfo) {
         const countryList = await fetch(`https://restcountries.eu/rest/v2/all`);
         const countries = await countryList.json();
         console.log(countries);
-        const selectCountry = countries.find(cty => cty.alpha2Code == weatherData.sys.country)
-        
-       
+        const selectCountry = countries.find(cty => cty.alpha2Code == weatherData.sys.country)          
 
         console.log(selectCountry.name)
 
@@ -96,6 +94,7 @@ async function getWeather(cityInfo) {
         console.log(keyData)
     } catch (error) {
         if (error.name) {
+            console.log(error.name)
             alert("Enter a valid city name")
         }
     }

@@ -7,6 +7,7 @@ const filesToCache = [
     'images/weather2.jpg',
     'images/weather1.jpg',
     'images/share-solid.svg',
+    'scripts/webShare.js',
     'manifest.json'
     
 

@@ -112,7 +112,8 @@ input#searchCity {
     padding-left: 20px;
 }
 label#customBtn {
-    position: absolute;
+    position: relative;
+    top: 10px;
 }
 #searchBtn {
     height: 40px;
