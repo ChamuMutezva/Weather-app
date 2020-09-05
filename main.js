@@ -16,13 +16,13 @@ const loadLocalData = ()  => {
             console.log(value)
             const city = document.querySelector(".currentData h2")
             const weatherDesc = document.querySelector(".currentData h3")
-            const currentTemp = document.querySelector(".current")
+            const currentTemp = document.querySelector(".currentTemperature")
             const img = document.querySelector(".currentData img")
             const dateTaken = document.querySelector(".currentDateTime")
 
             dateTaken.innerHTML = value.date;
             city.innerHTML = value.city;
-            currentTemp.innerHTML = `${value.temp}&deg C`
+            currentTemp.innerHTML = `${Math.round(value.temp)}&deg C`
             weatherDesc.innerHTML = value.descrption
             img.src = value.imageSrc
             img.setAttribute("alt", value.descrption)
@@ -71,7 +71,7 @@ async function getWeather(cityInfo) {
 
         dateTaken.innerHTML = futureDate.toDateString();
         city.innerHTML = weatherData.name + ", " + selectCountry.name
-        currentTemp.innerHTML = `${weatherData.main.temp}&deg C`
+        currentTemp.innerHTML = `${Math.round(weatherData.main.temp)}&deg C`
         weatherDesc.innerHTML = weatherData.weather[0].description
         img.src = `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`
         img.setAttribute("alt", weatherData.weather[0].description)
@@ -124,14 +124,10 @@ const displayData = (weekForecast) => {
         let template = `
         <div class="forecast">                         
                 <h3>${nextDate}</h3
-                <h3>${periodTime.temp.day}&deg C</h3>                
+                <h3>${Math.round(periodTime.temp.day)}&deg C</h3>                
                 <div class="rainCondition">
                     <img src=${imgSrc} alt=${periodTime.weather[0].description} />                   
-                </div>
-                
-                
-                
-            
+                </div>       
          </div
          `
         // console.log(dayDated)
