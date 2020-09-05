@@ -8,9 +8,9 @@ body {
     text-align: center;
     color: white;
    /* background-image: url("./images/weather2.jpg"); */   
-   background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%) ,
-                linear-gradient(127deg, rgba(68, 206, 224, 0.8), rgba(0,255,0,0) 70.71%) ,
-                linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%) ;
+   background: linear-gradient(217deg, rgb(16 15 15 / 80%), rgb(195 29 29 / 0%) 70.71%) ,
+    linear-gradient(127deg, rgb(76 76 91 / 80%), rgba(0,255,0,0) 70.71%) ,
+     linear-gradient(336deg, rgb(35 35 107 / 80%), rgba(0,0,255,0) 70.71%);
 }
 
 header {
@@ -31,7 +31,7 @@ h1 {
     width: 65%;
     padding: 10px;
     font-weight: 900;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     background: -webkit-linear-gradient(#efeef2, #080516);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -55,10 +55,11 @@ input#searchCity {
 
 .currentData {
     margin: 150px auto 20px;
-    width: 350px;
-  /*  border: 2px solid #90909d;n*/
+    width: min(350px, 90%);
     padding: 10px;
-    border-radius: 10px;
+    border: 4px solid #5d4e66;
+    box-shadow: 1px 1px 9px 10px white;
+    border-radius: 20px;
 }
 .current {
     padding: 15px;

@@ -60,7 +60,7 @@ async function getWeather(cityInfo) {
 
         const city = document.querySelector(".currentData h2")
         const weatherDesc = document.querySelector(".currentData h3")
-        const currentTemp = document.querySelector(".current")
+        const currentTemp = document.querySelector(".currentTemperature")
         const img = document.querySelector(".currentData img")
         const dateTaken = document.querySelector(".currentDateTime")
 
