@@ -3,22 +3,22 @@ let keyData
 
 const storedData = localStorage.length
 
-const loadLocalData = ()  => {
+const loadLocalData = () => {
     let cityData = "Bulawayo"
     //check if localstorage is supported
     if (window.localStorage) {
         console.log("Local storage is supported")
         //does localStorage contain any items
         if (localStorage.length > 0) {
-            let key = localStorage.key(localStorage.length - 1)            
-            
-            if(new Date(parseInt(key)) == "Invalid Date") {
+            let key = localStorage.key(localStorage.length - 1)
+
+            if (new Date(parseInt(key)) == "Invalid Date") {
                 console.log(new Date(parseInt(key)));
-                return  getWeather(cityData)
+                return getWeather(cityData)
             }
 
             let value = JSON.parse(localStorage.getItem(key))
-            
+
             console.log(key);
             console.log(value)
             const city = document.querySelector(".currentData h2")
@@ -44,7 +44,7 @@ const loadLocalData = ()  => {
 
     }
 }
- loadLocalData();
+loadLocalData();
 //console.log(storedData)
 async function getWeather(cityInfo) {
     const futureDate = new Date();
@@ -64,7 +64,7 @@ async function getWeather(cityInfo) {
         const countryList = await fetch(`https://restcountries.eu/rest/v2/all`);
         const countries = await countryList.json();
         console.log(countries);
-        const selectCountry = countries.find(cty => cty.alpha2Code == weatherData.sys.country)          
+        const selectCountry = countries.find(cty => cty.alpha2Code == weatherData.sys.country)
 
         console.log(selectCountry.name)
 
@@ -171,7 +171,7 @@ form.addEventListener("submit", (event) => {
     console.log(event)
     console.log(cityValue.value)
     getWeather(cityValue.value)
-
+    cityValue.value = "" //clear search field
 })
 
 
