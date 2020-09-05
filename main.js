@@ -1,40 +1,43 @@
 const form = document.querySelector("form")
 let keyData
-let cityData = "Bulawayo"
+
 const storedData = localStorage.length
 
-//check if localstorage is supported
-if (window.localStorage) {
-    console.log("Local storage is supported")
-    //does localStorage contain any items
-    if (localStorage.length > 0) {
-        let key = localStorage.key(localStorage.length - 1)
-        let value = JSON.parse(localStorage.getItem(key))
-        console.log(key);
-        console.log(value)
-        const city = document.querySelector(".currentData h2")
-        const weatherDesc = document.querySelector(".currentData h3")
-        const currentTemp = document.querySelector(".current")
-        const img = document.querySelector(".currentData img")
-        const dateTaken = document.querySelector(".currentData h5")
+const loadLocalData = ()  => {
+    let cityData = "Bulawayo"
+    //check if localstorage is supported
+    if (window.localStorage) {
+        console.log("Local storage is supported")
+        //does localStorage contain any items
+        if (localStorage.length > 0) {
+            let key = localStorage.key(localStorage.length - 1)
+            let value = JSON.parse(localStorage.getItem(key))
+            console.log(key);
+            console.log(value)
+            const city = document.querySelector(".currentData h2")
+            const weatherDesc = document.querySelector(".currentData h3")
+            const currentTemp = document.querySelector(".current")
+            const img = document.querySelector(".currentData img")
+            const dateTaken = document.querySelector(".currentData h5")
 
-        dateTaken.innerHTML = value.date;
-        city.innerHTML = value.city;
-        currentTemp.innerHTML = `${value.temp}&deg C`
-        weatherDesc.innerHTML = value.descrption
-        img.src = value.imageSrc
-        img.setAttribute("alt", value.descrption)
-        lat = parseInt(value.latitude)
-        lon = parseInt(value.longitude)
-        getWeekly(lat, lon)
-    } else {
-        console.log("No items in localstorage")
-        getWeather(cityData)
+            dateTaken.innerHTML = value.date;
+            city.innerHTML = value.city;
+            currentTemp.innerHTML = `${value.temp}&deg C`
+            weatherDesc.innerHTML = value.descrption
+            img.src = value.imageSrc
+            img.setAttribute("alt", value.descrption)
+            lat = parseInt(value.latitude)
+            lon = parseInt(value.longitude)
+            getWeekly(lat, lon)
+        } else {
+            console.log("No items in localstorage")
+            getWeather(cityData)
+        }
+
     }
-
 }
-
-console.log(storedData)
+ loadLocalData();
+//console.log(storedData)
 async function getWeather(cityInfo) {
     const futureDate = new Date();
     console.log(futureDate.toDateString())
@@ -52,7 +55,7 @@ async function getWeather(cityInfo) {
         // combine with code below to get the full country
         const countryList = await fetch(`https://restcountries.eu/rest/v2/all`);
         const countries = await countryList.json();
-         console.log(countries);
+        console.log(countries);
         const selectCountry = countries.find(cty => cty.alpha2Code == weatherData.sys.country)
 
 
