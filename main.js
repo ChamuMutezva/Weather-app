@@ -18,7 +18,7 @@ const loadLocalData = ()  => {
             const weatherDesc = document.querySelector(".currentData h3")
             const currentTemp = document.querySelector(".current")
             const img = document.querySelector(".currentData img")
-            const dateTaken = document.querySelector(".currentData h5")
+            const dateTaken = document.querySelector(".currentDateTime")
 
             dateTaken.innerHTML = value.date;
             city.innerHTML = value.city;
@@ -31,6 +31,7 @@ const loadLocalData = ()  => {
             getWeekly(lat, lon)
         } else {
             console.log("No items in localstorage")
+            console.log(localStorage.length)
             getWeather(cityData)
         }
 
@@ -57,7 +58,8 @@ async function getWeather(cityInfo) {
         const countries = await countryList.json();
         console.log(countries);
         const selectCountry = countries.find(cty => cty.alpha2Code == weatherData.sys.country)
-
+        
+       
 
         console.log(selectCountry.name)
 
