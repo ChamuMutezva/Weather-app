@@ -45,6 +45,46 @@ const loadLocalData = () => {
     }
 }
 loadLocalData();
+/* trial code ***
+const populateData = (eventDate,  weatherData, countryName ) => {
+    const futureDate = new Date();
+    console.log(futureDate.toDateString())
+    let lat
+    let lon
+    const city = document.querySelector(".currentData h2")
+    const weatherDesc = document.querySelector(".currentData h3")
+    const currentTemp = document.querySelector(".currentTemperature")
+    const img = document.querySelector(".currentData img")
+    const dateTaken = document.querySelector(".currentDateTime")
+
+    dateTaken.innerHTML = futureDate.toDateString();
+    city.innerHTML = weatherData.name + ", " + selectCountry.name
+    currentTemp.innerHTML = `${Math.round(weatherData.main.temp)}&deg C`
+    weatherDesc.innerHTML = weatherData.weather[0].description
+    img.src = `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`
+    img.setAttribute("alt", weatherData.weather[0].description)
+    lat = weatherData.coord.lat
+    lon = weatherData.coord.lon
+    console.log(lat, lon)
+    getWeekly(lat, lon)
+
+     //use localstorage to set data.
+     console.log(weatherData.dt)
+     let dataMessage = {
+         date: futureDate.toDateString(),
+         city: weatherData.name,
+         temp: weatherData.main.temp,
+         imageSrc: img.src,
+         descrption: weatherData.weather[0].description,
+         latitude: lat,
+         longitude: lon
+     }
+     localStorage.setItem(weatherData.dt, JSON.stringify(dataMessage))
+     keyData = localStorage.getItem(weatherData.dt)
+     console.log(keyData)
+}
+// end of trial data
+*/
 //console.log(storedData)
 async function getWeather(cityInfo) {
     const futureDate = new Date();
@@ -67,6 +107,7 @@ async function getWeather(cityInfo) {
         const selectCountry = countries.find(cty => cty.alpha2Code == weatherData.sys.country)
 
         console.log(selectCountry.name)
+        //  populateData(futureDate, weatherData , selectCountry)
 
         const city = document.querySelector(".currentData h2")
         const weatherDesc = document.querySelector(".currentData h3")
@@ -99,6 +140,7 @@ async function getWeather(cityInfo) {
         localStorage.setItem(weatherData.dt, JSON.stringify(dataMessage))
         keyData = localStorage.getItem(weatherData.dt)
         console.log(keyData)
+
     } catch (error) {
         if (error.name) {
             console.log(error.name)
