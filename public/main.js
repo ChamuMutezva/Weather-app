@@ -3,6 +3,7 @@ let keyData
 
 const storedData = localStorage.length
 
+// load this data onLoad
 const loadLocalData = () => {
     let cityData = "Bulawayo"
     //check if localstorage is supported

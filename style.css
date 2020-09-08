@@ -34,6 +34,11 @@ h1 {
     text-align: left;
     padding-left: 20px;
 }
+h2.eventInfo {
+    margin: 160px auto 20px;
+    font-weight: 500;
+    font-style: italic;
+}
 form {   
     display: flex;
     flex-direction: column;
@@ -50,7 +55,7 @@ input#searchCity {
 }
 
 .currentData {
-    margin: 150px auto 20px;
+    margin: 50px auto 20px;
     width: min(350px, 90%);
     padding: 10px;  
     box-shadow: 1px 1px 9px 10px white;

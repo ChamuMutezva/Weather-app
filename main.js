@@ -5,6 +5,7 @@ const storedData = localStorage.length
 
 const loadLocalData = () => {
     let cityData = "Bulawayo"
+    
     //check if localstorage is supported
     if (window.localStorage) {
         console.log("Local storage is supported")
@@ -26,6 +27,15 @@ const loadLocalData = () => {
             const currentTemp = document.querySelector(".currentTemperature")
             const img = document.querySelector(".currentData img")
             const dateTaken = document.querySelector(".currentDateTime")
+            const eventInfo = document.querySelector(".eventInfo")
+            const msg = value.description
+
+            if(msg === "clear sky") {
+                eventInfo.innerHTML = `A ${value.description} is perfect for the event`
+            } else {
+                eventInfo.innerHTML = `Event postponed because of ${value.descrption} `
+            }
+
 
             dateTaken.innerHTML = value.date;
             city.innerHTML = value.city;
@@ -74,6 +84,14 @@ async function getWeather(cityInfo) {
         const currentTemp = document.querySelector(".currentTemperature")
         const img = document.querySelector(".currentData img")
         const dateTaken = document.querySelector(".currentDateTime")
+        const eventInfo = document.querySelector(".eventInfo")
+        const msg = weatherData.weather[0].description
+
+        if(msg === "clear sky") {
+            eventInfo.innerHTML = `A ${weatherData.weather[0].description} is perfect for the event`
+        } else {
+            eventInfo.innerHTML = `Event postponed because of ${weatherData.weather[0].description} `
+        }
 
         dateTaken.innerHTML = futureDate.toDateString();
         city.innerHTML = weatherData.name + ", " + selectCountry.name
