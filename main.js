@@ -28,10 +28,12 @@ const loadLocalData = () => {
             const img = document.querySelector(".currentData img")
             const dateTaken = document.querySelector(".currentDateTime")
             const eventInfo = document.querySelector(".eventInfo")
-            const msg = value.description
+            const msg = value.descrption
+
+            console.log(msg)
 
             if(msg === "clear sky") {
-                eventInfo.innerHTML = `A ${value.description} is perfect for the event`
+                eventInfo.innerHTML = `A ${value.descrption} is perfect for the event`
             } else {
                 eventInfo.innerHTML = `Event postponed because of ${value.descrption} `
             }
