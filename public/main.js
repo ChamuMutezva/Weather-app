@@ -31,9 +31,9 @@ const loadLocalData = () => {
             dateTaken.innerHTML = value.date;
             city.innerHTML = value.city;
             currentTemp.innerHTML = `${Math.round(value.temp)}&deg C`
-            weatherDesc.innerHTML = value.descrption
+            weatherDesc.innerHTML = value.description
             img.src = value.imageSrc
-            img.setAttribute("alt", value.descrption)
+            img.setAttribute("alt", value.description)
             lat = parseInt(value.latitude)
             lon = parseInt(value.longitude)
             getWeekly(lat, lon)
@@ -94,7 +94,7 @@ async function getWeather(cityInfo) {
             city: weatherData.name,
             temp: weatherData.main.temp,
             imageSrc: img.src,
-            descrption: weatherData.weather[0].description,
+            description: weatherData.weather[0].description,
             latitude: lat,
             longitude: lon
         }

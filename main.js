@@ -28,23 +28,23 @@ const loadLocalData = () => {
             const img = document.querySelector(".currentData img")
             const dateTaken = document.querySelector(".currentDateTime")
             const eventInfo = document.querySelector(".eventInfo")
-            const msg = value.descrption
+            const msg = value.description
 
             console.log(msg)
 
             if(msg === "clear sky") {
-                eventInfo.innerHTML = `A ${value.descrption} is perfect for the event`
+                eventInfo.innerHTML = `A ${value.description} is perfect for the event`
             } else {
-                eventInfo.innerHTML = `Event postponed because of ${value.descrption} `
+                eventInfo.innerHTML = `Event postponed because of ${value.description} `
             }
 
 
             dateTaken.innerHTML = value.date;
             city.innerHTML = value.city;
             currentTemp.innerHTML = `${Math.round(value.temp)}&deg C`
-            weatherDesc.innerHTML = value.descrption
+            weatherDesc.innerHTML = value.description
             img.src = value.imageSrc
-            img.setAttribute("alt", value.descrption)
+            img.setAttribute("alt", value.description)
             lat = parseInt(value.latitude)
             lon = parseInt(value.longitude)
             getWeekly(lat, lon)
@@ -113,7 +113,7 @@ async function getWeather(cityInfo) {
             city: weatherData.name,
             temp: weatherData.main.temp,
             imageSrc: img.src,
-            descrption: weatherData.weather[0].description,
+            description: weatherData.weather[0].description,
             latitude: lat,
             longitude: lon
         }
