@@ -1,8 +1,6 @@
 const form = document.querySelector("form")
 let keyData
 
-const storedData = localStorage.length
-
 const loadLocalData = () => {
     let cityData = "Bulawayo"
     
@@ -110,7 +108,7 @@ async function getWeather(cityInfo) {
         console.log(weatherData.dt)
         let dataMessage = {
             date: futureDate.toDateString(),
-            city: weatherData.name,
+            city: `${weatherData.name}, ${selectCountry.name}`,
             temp: weatherData.main.temp,
             imageSrc: img.src,
             description: weatherData.weather[0].description,

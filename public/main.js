@@ -1,7 +1,7 @@
 const form = document.querySelector("form")
 let keyData
 
-const storedData = localStorage.length
+// const storedData = localStorage.length
 
 // load this data onLoad
 const loadLocalData = () => {

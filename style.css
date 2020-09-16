@@ -6,7 +6,8 @@
 body {
     font-family: 'Lato', sans-serif;
     text-align: center;
-    color: white;     
+    color: white;   
+    font-display: swap;  
    background: linear-gradient(217deg, rgb(16 15 15 / 80%), rgb(195 29 29 / 0%) 70.71%) ,
     linear-gradient(127deg, rgb(76 76 91 / 80%), rgba(0,255,0,0) 70.71%) ,
      linear-gradient(336deg, rgb(35 35 107 / 80%), rgba(0,0,255,0) 70.71%);
